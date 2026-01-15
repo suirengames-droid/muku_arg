@@ -1,30 +1,48 @@
-const messages = document.getElementById("messages");
+const chat = document.getElementById("chat");
+const input = document.getElementById("input");
 
-function addMessage(text, className) {
-  const div = document.createElement("div");
-  div.className = `message ${className}`;
-  div.innerText = text;
-  messages.appendChild(div);
-}
+// ランダム返答用
+const randomReplies = [
+  "それは観測対象外です。",
+  "よくわかりませんでした",
+  "記録が曖昧です。言葉を選び直して。",
+  "その質問には、答えられません。",
+  "僕が何をしたっていうの…"
+];
 
-addMessage("ようこそ、観測者様。\nこれは人生読み取り装置です。", "muku");
+// キーワード分岐
+const keywords = {
+  "人生": "人生は、読み取るものじゃない。残るものだ。",
+  "影": "僕は影が先だと思う。光は後から生まれた。",
+  "佐久間無垢": "……その名前を、どこで知った？"
+};
 
-function sendMessage() {
-  const input = document.getElementById("userInput");
+function send() {
   const text = input.value;
-  if (!text) return;
-
-  addMessage(text, "user");
   input.value = "";
 
-  respond(text);
-}
+  addMessage("あなた", text);
 
-function respond(text) {
-  if (text.includes("影先性")) {
-    addMessage("その言葉を知っているなら、外を見るべきだ。\nXで @sakuma_muku を探して。", "muku");
-    return;
+  let reply = null;
+
+  // キーワードチェック
+  for (const key in keywords) {
+    if (text.includes(key)) {
+      reply = keywords[key];
+      break;
+    }
   }
 
-  addMessage("記録中……。\n続けて入力して。", "muku");
+  // なければランダム
+  if (!reply) {
+    reply = randomReplies[Math.floor(Math.random() * randomReplies.length)];
+  }
+
+  setTimeout(() => {
+    addMessage("無垢", reply);
+  }, 800);
+}
+
+function addMessage(who, text) {
+  chat.innerHTML += `<p><b>${who}：</b>${text}</p>`;
 }
