@@ -34,11 +34,11 @@ const insanityKeywords = [
   "読む",
   "覗く"
 ];
-function sendMessage() {
-  const text = input.value;
-  input.value = "";
+function sendMessage(userInput) {
+  const text = userInput;
+  userInput = "";
 
-  addMessage("あなた", text);
+  addMessage("あなた", text.value);
 
   let reply = null;
 
