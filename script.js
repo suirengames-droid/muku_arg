@@ -34,11 +34,12 @@ const insanityKeywords = [
   "読む",
   "覗く"
 ];
+
 function sendMessage(userInput) {
   const text = userInput;
   userInput = "";
 
-  addMessage("あなた", text.value);
+  addMessage("あなた", text.value,"bms_right");
 
   let reply = null;
 
@@ -56,7 +57,7 @@ function sendMessage(userInput) {
   }
 
   setTimeout(() => {
-    addMessage("無垢", reply);
+    addMessage("無垢", reply,bms_left);
   }, 800);
 }
 

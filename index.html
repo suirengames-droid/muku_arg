@@ -1,49 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人生読み取り装置</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人生読み取り装置</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="chat">
-        <!-- ヘッダー部分② -->
-        <div id="chat_header">
-           <strong>ようこそ、人生記録装置へ</strong> 
-        </div>
 
-        <!-- タイムライン部分③ -->
-        <div id="messages_area">
-
-            <!--メッセージ１（左側）-->
-            <div class="bms_message bms_left">
-                <div class="bms_message_box">
-                    <div class="bms_message_content">
-                        <div class="bms_message_text">ほうほうこりゃー便利じゃないか</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-
-            <!--メッセージ２（右側）-->
-            <div class="bms_message bms_right">
-                <div class="bms_message_box">
-                    <div class="bms_message_content">
-                        <div class="bms_message_text">うん、まあまあいけとるな</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bms_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-        </div>
+  <div id="chat">
+    <div id="chat_header">
+      ようこそ、人生記録装置へ
     </div>
-        <!-- テキストボックス、送信ボタン④ -->
-        <div id="input-area">
-            <input type="text" id="userInput"></textarea>
-            <button id="btn_send" onclick="sendMessage(userInput)">送信
-        </div>
-</body>
 
+    <div id="messages_area"></div>
+  </div>
+
+
+  <div id="input-area">
+    <input type="text" id="userInput" placeholder="言葉を入力してください">
+    <button id="btn_send" onclick="sendMessage(userInput)">送信</button>
+  </div>
+
+
+</body>
 </html>
