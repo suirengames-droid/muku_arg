@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>人生読み取り装置</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生読み取り装置</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <div id="chat">
-    <div id="chat_header">
-      ようこそ、人生記録装置へ
+    <div class="side-left">
+        <div class="side-box">
+            <div class="side-title">SYSTEM</div>
+            <div>接続状態：安定</div>
+            <div>現在時刻：<span id="currentTime">--:--:--</span></div>
+            <div>観測対象：無垢</div>
+        </div>
+    </div>
+    <div class="side-right">
+        <div class="side-box">
+            <div class="side-title">RECORD</div>
+            <div>記録番号：#0021</div>
+            <div>保存状態：自動記録中</div>
+            <div>被験者：あなた</div>
+        </div>
     </div>
 
-    <div id="messages_area"></div>
-  </div>
+    <div id="chat">
+        <div id="chat_header">
+            ようこそ、人生記録装置へ
+        </div>
+
+        <div id="messages_area">
+            <div class="bms_right" aria-valuetext={bms_right}></div>
+            <div class="bms_left" aria-valuetext={bms_left}></div>
+        </div>
+    </div>
 
 
-  <div id="input-area">
-    <input type="text" id="userInput" placeholder="言葉を入力してください">
-    <button id="btn_send" onclick="sendMessage(userInput)">送信</button>
-  </div>
+    <div id="input-area">
+        <input type="text" id="userInput" placeholder="言葉を入力してください">
+        <button id="btn_send" onclick="sendMessage(userInput)">送信</button>
+    </div>
 
 
 </body>
+<script src="script.js"></script>
+
 </html>
